@@ -55,7 +55,7 @@ public class MilestoneCreateServlet extends BaseServlet {
         m.setName(request.getParameter("name"));
         m.setDescription(request.getParameter("description"));
         m.setDueDate(Timestamp.valueOf(request.getParameter("dueDate")));
-        m.setDateCompleted(Timestamp.valueOf(request.getParameter("dateCompleted")));
+        m.setDateCompleted(null);
         m.setProjectID(Integer.parseInt(request.getParameter("projectID")));
 
         // IF IT WAS SUCCESSFULLY CREATED

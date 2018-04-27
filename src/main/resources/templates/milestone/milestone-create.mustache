@@ -1,6 +1,6 @@
 {{>../_partials/site-header}}
 
-<link rel="stylesheet" href="/css/dateTimePicker/default/zebra_datepicker.min.css">
+<link rel="stylesheet" href="/css/dateTimePicker/bootstrap/zebra_datepicker.min.css">
 
 <div class="six columns offset-by-three">
     <h1>Create Milestone</h1>
@@ -14,7 +14,8 @@
 
 
         <label for="dueDate">Due Date</label>
-        <input class="u-full-width" type="text" id="datepicker" placeholder="Enter Milestone Due Date" name="dueDate" required>
+        <input class="u-full-width" type="text" id="dueDate" placeholder="Enter Milestone Due Date" name="dueDate" required>
+
 
         <input class="button-primary success" type="submit" value="Create Milestone">
 
@@ -24,9 +25,10 @@
 
     <script>
         $(document).ready(function() {
-            $('#datepicker').Zebra_DatePicker({
+            $('#dueDate').Zebra_DatePicker({
                 format: 'd-m-Y H:i'
             });
+
         });
     </script>
 

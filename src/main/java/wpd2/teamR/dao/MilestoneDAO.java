@@ -162,7 +162,7 @@ public class MilestoneDAO extends DAOBase {
             ps.setString(1, milestone.getName());
             ps.setString(2, milestone.getDescription());
             ps.setTimestamp(3, milestone.getDueDate());
-            ps.setTimestamp(4, milestone.getDateCompleted());
+            ps.setTimestamp(4, null);
             ps.setInt(5, projectId);
             int count = ps.executeUpdate();
             LOG.debug("insert count = " + count);

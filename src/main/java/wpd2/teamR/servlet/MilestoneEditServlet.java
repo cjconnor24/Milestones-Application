@@ -95,6 +95,7 @@ public class MilestoneEditServlet extends BaseServlet {
         }
 
         //GETTING ID FROM URL
+        String check = getUrlParamter(request.getRequestURI());
         int milestoneID = Integer.parseInt(getUrlParamter(request.getRequestURI()));
         int checkParameter = Integer.parseInt(request.getParameter("id-check"));  //NEEDED?????
 
@@ -112,6 +113,8 @@ public class MilestoneEditServlet extends BaseServlet {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+
+            Timestamp timestamp = new Timestamp();
 
 
             //==================================================

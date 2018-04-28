@@ -35,6 +35,10 @@ public class Project {
         this.description = description;
     }
 
+    public void addMilestone(Milestone milestoneToAdd) {
+        //TODO: ADD BODY
+        this.milestones.add(milestoneToAdd);
+    }
 
     /**
      * Return human readable Datetime Created
@@ -55,5 +59,15 @@ public class Project {
     }
 
 
+    public Milestone getMilestone(int milestoneToGetId) {
+        //TODO: ADD BODY
+        //gets a milestone using the requested Id?
+        return null; // <= THIS WILL CHANGE OBVIOUSLY
+    }
+
+    public void deleteMilestone(int milestoneToDeleteId) {
+        //TODO: ADD BODY
+        //Deletes a Milestone from a Project
+    }
 
 }

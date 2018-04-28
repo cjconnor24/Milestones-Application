@@ -38,4 +38,24 @@ class User {
         this.dateCreated = dateCreated;
     }
 
+
+    public void addProject(Project projectToAdd) {
+        //TODO: ADD BODY
+        //Function will add a project object to a user
+        this.projects.add(projectToAdd);
+    }
+
+
+    public Project getProject(int projectToGetId) {
+        //TODO: ADD BODY
+        //gets a project using the requested Id?
+        return null; // <= THIS WILL CHANGE OBVIOUSLY
+    }
+
+    public void deleteProject(int projectToDeleteId) {
+        //TODO: ADD BODY
+        //Deletes a project from a user
+    }
+
+
 }

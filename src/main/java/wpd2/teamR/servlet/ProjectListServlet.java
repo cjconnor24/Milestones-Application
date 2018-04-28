@@ -29,9 +29,9 @@ public class ProjectListServlet extends BaseServlet {
     private MilestoneDAO milestones;
 
 
-    public ProjectListServlet() {
-        projects = new ProjectDAO();
-        milestones = new MilestoneDAO();
+    public ProjectListServlet(){
+    projects = new ProjectDAO();
+    milestones = new MilestoneDAO();
     }
 
 
@@ -48,7 +48,7 @@ public class ProjectListServlet extends BaseServlet {
         try {
             plist = projects.getProjectsbyUser(getCurrentUser(request));
 
-            plist.forEach((v) -> {
+            plist.forEach((v)->{
                 try {
                     v.setMilestones(milestones.getAllMilestonesByProjectId(v.getId()));
                 } catch (SQLException e) {

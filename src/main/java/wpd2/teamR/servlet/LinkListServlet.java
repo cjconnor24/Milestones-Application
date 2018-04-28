@@ -50,9 +50,10 @@ public class LinkListServlet extends BaseServlet {
     private ProjectDAO projects;
 
 
-    public LinkListServlet() {
-        links = new LinkDAO();
-        projects = new ProjectDAO();
+
+    public LinkListServlet(){
+    links = new LinkDAO();
+    projects = new ProjectDAO();
     }
 
 
@@ -69,10 +70,10 @@ public class LinkListServlet extends BaseServlet {
         try {
 
             llist = links.findAllByUserEmail(getCurrentUser(request));
-            llist.forEach((v) -> {
+            llist.forEach((v)->{
                 try {
                     v.setProject(projects.getProjectById(v.getProjectID()));
-                } catch (SQLException error) {
+                } catch(SQLException error){
                     // TODO: SOMETHING WENT WRONG - GENERATE ERROR
                 }
             });

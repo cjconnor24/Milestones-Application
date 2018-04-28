@@ -3,16 +3,16 @@
 {{>../_partials/flash-message}}
 
 <div class="eight columns offset-by-two">
-    <h1><i class="far fa-file"></i> Create Project</h1>
-    <form id="create-project" method="post" action="/projects/create">
+<h1><i class="far fa-file"></i> Create Project</h1>
+<form id="create-project" method="post" action="/projects/create">
 
-        {{>_partials/project-form}}
+    {{>_partials/project-form}}
 
-    </form>
+</form>
 </div>
 {{>../_partials/jquery-validate}}
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         $("#create-project").validate({
             rules: {
@@ -20,7 +20,7 @@
                     required: true
                 },
                 description: {
-                    required: true
+                    required:true
                 }
             }
         });

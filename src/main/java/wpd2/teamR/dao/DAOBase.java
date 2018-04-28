@@ -30,12 +30,51 @@ public class DAOBase implements AutoCloseable {
     }
 
 
+//    public List<Object> getAllUsers() throws SQLException {
+//
+//        final String LIST_PERSONS = "SELECT email FROM users";
+//        List<Object> results = new ArrayList<>();
+//
+//        try (PreparedStatement ps = connection.prepareStatement(LIST_PERSONS)) {
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                results.add(rs.getString(1));
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        return results;
+//
+//    }
+
+
     protected Connection getConnection() {
 
         return connection;
 
     }
 
+//    public Connection provide() {
+//        try {
+//            // the driver class must be loaded
+//            // so that DriverManager can find the loaded class
+//            Class.forName("com.mysql.jdbc.Driver");
+//
+//            // CONNECTION DETAILS
+//            String servername = "localhost";
+//            int port = 3306;
+//            String user = "root";
+//            String pass = "";
+//            String db = "milestones";
+//            String connectionString = "jdbc:mysql://" + servername + ":" + port + "/" + db;
+//
+//            return DriverManager.getConnection(connectionString,user, pass);
+//
+//        } catch (SQLException | ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     protected static void execute(Connection connection, String cmd) {
         try {

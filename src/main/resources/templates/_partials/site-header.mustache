@@ -15,23 +15,23 @@
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        $(function () {
+        $(function(){
 
-            $('#new-project').click(function (e) {
+            $('#new-project').click(function(e){
                 e.preventDefault();
                 console.log('This worked');
                 $('.modal').fadeIn(100);
             });
 
             // CLOSE OPEN FLASH MESSAGE
-            $('.flash').find('.close').click(function (e) {
+            $('.flash').find('.close').click(function(e){
                 $(this).parent().slideUp('fast');
             });
 
             // FADE FLASH MESSAGE AFTER 5 SECS
             // $(".flash").delay(5000).slideUp("slow");
 
-            $('.modal .close').click(function (e) {
+            $('.modal .close').click(function(e){
                 $('.modal').fadeOut(100);
             });
 
@@ -61,25 +61,25 @@
         <div class="container">
             <img src="/img/MilestoneLogo.svg" alt="Milestone Logo">
             <ul>
-                {{#hidenav}}
-                    <li>
-                        <a href="/login"><i class="fas fa-user"></i> Member Login</a>
-                    </li>
-                {{/hidenav}}
-                {{^hidenav}}
-                    <li>
-                        <a href="/">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="/projects">Projects</a>
-                    </li>
-                    <li>
-                        <a href="/links">Manage Links</a>
-                    </li>
-                    <li>
-                        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                    </li>
-                {{/hidenav}}
+            {{#hidenav}}
+                <li>
+                    <a href="/login"><i class="fas fa-user"></i> Member Login</a>
+                </li>
+            {{/hidenav}}
+            {{^hidenav}}
+                <li>
+                    <a href="/">Dashboard</a>
+                </li>
+                <li>
+                    <a href="/projects">Projects</a>
+                </li>
+                <li>
+                    <a href="/links">Manage Links</a>
+                </li>
+                <li>
+                    <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            {{/hidenav}}
             </ul>
         </div>
     </nav>

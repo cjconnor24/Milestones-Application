@@ -3,51 +3,49 @@
 
 <h1><i class="far fa-calendar-alt"></i> Milestones</h1>
 <p>Below are the current milestones</p>
-<p class="header-button-row"><a href="/milestones/create" class="button button-primary success"><i
-        class="fas fa-calendar-plus"></i> New Milestone</a> <a href="/links" class="button button-primary"><i
-        class="far fa-share-square"></i> Share Links</a></p>
+<p class="header-button-row"><a href="/milestones/create" class="button button-primary success"><i class="fas fa-calendar-plus"></i> New Milestone</a> <a href="/links" class="button button-primary"><i class="far fa-share-square"></i> Share Links</a></p>
 
 {{^milestones}}
     <p class="no-results">There are currently no milestones. You can create a new one by clicking the link above.</p>
 {{/milestones}}
 <div class="milestone-list">
 
-    {{#milestones}}
-        <div class="milestone">
+{{#milestones}}
+    <div class="milestone">
 
-            <div class="header">
+        <div class="header">
 
-                <div class="due-date">
-                    <ul>
-                        <li>{{dueDay}}</li>
-                        <li>{{dueMonth}}</li>
-                        <li>{{dueYear}}</li>
-                    </ul>
-                </div>
+            <div class="due-date">
+                <ul>
+                    <li>{{dueDay}}</li>
+                    <li>{{dueMonth}}</li>
+                    <li>{{dueYear}}</li>
+                </ul>
+            </div>
 
-                <div class="details">
-                    <h3>{{name}}</h3>
-                    <div class="timestamps">
-                        <p><i class="far fa-clock"></i> Created {{prettyDateCreated}}</p>
-                        <p><i class="fas fa-pencil-alt"></i> Modified {{prettyDateModified}}</p>
-                    </div>
-
-                </div>
-
-                <div class="menu">
-                    <ul>
-                        <!-- <li><a href="#"><i class="fas fa-eye"></i><span>View</span></a></li> -->
-                        <li><a href="/milestones/edit/{{id}}"><i class="fas fa-edit"></i><span>Edit</span></a></li>
-                        <li><a href="/milestones/delete/{{id}}"><i class="fas fa-trash"></i><span>Delete</span></a></li>
-                    </ul>
+            <div class="details">
+                <h3>{{name}}</h3>
+                <div class="timestamps">
+                <p><i class="far fa-clock"></i> Created {{prettyDateCreated}}</p>
+                <p><i class="fas fa-pencil-alt"></i> Modified {{prettyDateModified}}</p>
                 </div>
 
             </div>
 
-            <p>{{description}}<a href="#">Read more...</a></p>
+            <div class="menu">
+                <ul>
+                    <!-- <li><a href="#"><i class="fas fa-eye"></i><span>View</span></a></li> -->
+                    <li><a href="/milestones/edit/{{id}}"><i class="fas fa-edit"></i><span>Edit</span></a></li>
+                    <li><a href="/milestones/delete/{{id}}"><i class="fas fa-trash"></i><span>Delete</span></a></li>
+                </ul>
+            </div>
 
         </div>
-    {{/milestones}}
+
+        <p>{{description}}<a href="#">Read more...</a></p>
+
+    </div>
+{{/milestones}}
 </div>
 
 

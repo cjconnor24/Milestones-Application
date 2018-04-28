@@ -68,7 +68,7 @@ public class LinkCreateServlet extends BaseServlet {
         List<Project> projectList = new ArrayList<>();
         try {
             projectList = projects.getProjectsbyUser(getCurrentUser(request));
-        } catch (SQLException error) {
+        } catch(SQLException error){
             //TODO: SOMETHING WENT WRONG
         }
 
@@ -92,12 +92,12 @@ public class LinkCreateServlet extends BaseServlet {
         String email = request.getParameter("email");
         int projectID = Integer.parseInt(request.getParameter("project"));
 
-        Link l = new Link(email, projectID);
+        Link l = new Link(email,projectID);
         l.setEmail(request.getParameter("email"));
         l.setProjectID(projectID);
 
         // IF IT WAS SUCCESSFULLY CREATED
-        if (links.save(l, projectID)) {
+        if (links.save(l,projectID)) {
 
             // SAVE A SUCCESSFUL FLASH MESSAGE AND RETURN TO PROJECT VIEW
             SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.SUCCESS, "Link Created", "Your share link was created :)"));

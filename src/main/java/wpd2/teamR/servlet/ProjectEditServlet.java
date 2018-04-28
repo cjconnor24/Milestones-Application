@@ -75,7 +75,7 @@ public class ProjectEditServlet extends BaseServlet {
             // SHOW THE EDIT FORM
             HashMap<String, Object> viewBag = new HashMap<String, Object>();
             FlashMessage message = SessionFunctions.getFlashMessage(request);
-            viewBag.put("mode", "Edit");
+            viewBag.put("mode","Edit");
             viewBag.put("project", project);
 
             showView(response, "project/project-edit.mustache", viewBag);
@@ -99,7 +99,7 @@ public class ProjectEditServlet extends BaseServlet {
         int checkParameter = Integer.parseInt(request.getParameter("id-check"));
 
         // CHECK THE PARAMETER MATCHES WHAT WAS SUBMITTED
-        if (projectID == checkParameter) {
+        if(projectID == checkParameter){
 
             // BUILD THE OBJECT AND SAVE IT
             Project updatedProject = new Project();
@@ -118,8 +118,9 @@ public class ProjectEditServlet extends BaseServlet {
         } else {
             // REDIRECT
             SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.ERROR, "Uh oh...", "The form request does match"));
-
+            
         }
+
 
 
         response.sendRedirect("/projects");

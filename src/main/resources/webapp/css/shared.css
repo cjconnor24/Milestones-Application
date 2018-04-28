@@ -1,43 +1,32 @@
 @keyframes pulse {
-    0% {
-        background-color: var(--green);
-    }
-    40% {
-        background-color: var(--green);
-    }
-    50% {
-        background-color: rgb(109, 223, 109);
-    }
-    100% {
-        background-color: var(--green);
-    }
+    0% {background-color: var(--green);}
+    40% {background-color:var(--green);}
+    50% {background-color: rgb(109, 223, 109);}
+    100% {background-color: var(--green);}
 }
 
 .shared-login {
     text-align: center;
 }
-
 .shared-login input[type=email] {
-    height: 50px;
+    height:50px;
     line-height: 50px;
-    font-size: 1.5em;
+    font-size:1.5em;
     text-align: center;
 }
-
 .shared-login input[type=email]::placeholder {
-    color: #CCC;
+    color:#CCC;
 }
-
 .shared-login button {
-    height: 50px;
-    display: block;
-    font-size: 1.2em;
+    height:50px;
+    display:block;
+    font-size:1.2em;
     width: 100%;
-    color: white;
+    color:white;
     animation-name: pulse;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    border: none;
-
+    border:none;
+    
 }

@@ -63,11 +63,11 @@ public class LinkDeleteServlet extends BaseServlet {
         //GETTING ID FROM URL
         int id = Integer.parseInt(getUrlParamter(request.getRequestURI()));
 
-        Link linkToDelete = null;
+        Link linkToDelete= null;
 
         //GETTING PROJECT TO BE DELETED
         try {
-            linkToDelete = links.findByUserAndId(email, id);
+            linkToDelete = links.findByUserAndId(email,id);
         } catch (SQLException e) {
             returnNotFound(request, response);
         }
@@ -99,7 +99,7 @@ public class LinkDeleteServlet extends BaseServlet {
         Link link = null;
         try {
             link = links.findById(parameter);
-        } catch (SQLException error) {
+        } catch(SQLException error){
             // TODO: FIX ERROR?
         }
 //

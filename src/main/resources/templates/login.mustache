@@ -11,46 +11,47 @@
 
     <form action="/login" method="post" id="login-form">
 
-        <input type="radio" class="login-button" id="login" value="login" name="buttons" checked>
-        <label for="login">Login</label>
+    <input type="radio" class="login-button" id="login" value="login" name="buttons" checked>
+    <label for="login">Login</label>
 
-        <input type="radio" class="signup-button" id="signup" value="register" name="buttons">
-        <label for="signup">Signup</label>
+    <input type="radio" class="signup-button" id="signup" value="register" name="buttons">
+    <label for="signup">Signup</label>
+
+
 
 
         <div class="form-box">
 
-            <div class="signup">
+        <div class="signup">
 
-                <label for="fname">First Name</label>
-                <input type="text" name="fname" value="" required>
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" value="" required>
 
-                <label for="lname">Last Name</label>
-                <input type="text" name="lname" required>
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" required>
 
-            </div>
+        </div>
 
-            <div class="login">
+        <div class="login">
 
-                <label for="email">Email</label>
-                <input type="email" name="email" value="" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" value="" required>
 
-                <label for="password">Password</label>
-                <input type="password" name="password" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
 
-            </div>
+        </div>
 
-            <p><input type="submit" value="Login"></p>
+        <p><input type="submit" value="Login"></p>
 
         </div>
 
     </form>
 
 </div>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function(){
 
         // VALIDATE THE FORM - NOT WORRYING ABOUT AJAX WITH THIS YET
         // TODO: ADD AJAX CHECK TO SEE IF USERNAME EXISTS

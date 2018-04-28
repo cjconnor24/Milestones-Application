@@ -28,29 +28,29 @@ public class UserDAOTest {
 
         PreparedStatement ps = connection.prepareStatement(query);
 
-        //PASS ID TO PREPARED STATEMENT
-        ps.setString(1, "Test");
+            //PASS ID TO PREPARED STATEMENT
+            ps.setString(1, "Test");
 
-        ps.executeUpdate();
+            ps.executeUpdate();
     }
 
     @Test
     public void registerUser() {
         UserDAO dao = new UserDAO();
-        User user = new User("Test", "Test", "Test@Test.com", "Test");
+        User user = new User("Test","Test","Test@Test.com","Test");
         assertTrue(dao.registerUser(user));
     }
 
     @Test
     public void checkIsValidUser() throws SQLException {
         UserDAO dao = new UserDAO();
-        assertFalse(dao.checkIsValidUser("Test@Test.com", "Test").isEmpty());
+        assertFalse(dao.checkIsValidUser("Test@Test.com","Test").isEmpty());
     }
 
     @Test
     public void checkIsNotValidUser() throws SQLException {
         UserDAO dao = new UserDAO();
-        assertTrue(dao.checkIsValidUser("JohnnyTravers", "WillyWonka").isEmpty());
+        assertTrue(dao.checkIsValidUser("JohnnyTravers","WillyWonka").isEmpty());
     }
 
 

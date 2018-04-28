@@ -68,7 +68,7 @@ public class SharedLoginServlet extends BaseServlet {
 
         FlashMessage message = SessionFunctions.getFlashMessage(request);
         Map<String, Object> viewBag = new HashMap<>();
-        viewBag.put("hidenav", true); // HIDE THE NAVBAR
+        viewBag.put("hidenav",true); // HIDE THE NAVBAR
         viewBag.put("message", message);
         viewBag.put("hash", urlHash);
 

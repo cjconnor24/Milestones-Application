@@ -44,7 +44,7 @@ public class ProjectCreateServlet extends BaseServlet {
         // SETUP VIEWBAG TO SEND TO VIEW
         HashMap<String, Object> viewBag = new HashMap<String, Object>();
         FlashMessage message = SessionFunctions.getFlashMessage(request);
-        viewBag.put("mode", "Create");
+        viewBag.put("mode","Create");
         viewBag.put("message", message);
 
         // RENDER CREATE FORM

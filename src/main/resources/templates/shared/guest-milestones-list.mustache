@@ -5,38 +5,39 @@
 <p>Below are the current milestones</p>
 
 <div class="milestone-list">
-    {{^milestones}}
-        <p class="no-results">There are currently no milestones.</p>
-    {{/milestones}}
-    {{#milestones}}
-        <div class="milestone">
+{{^milestones}}
+    <p class="no-results">There are currently no milestones.</p>
+{{/milestones}}
+{{#milestones}}
+    <div class="milestone">
 
-            <div class="header">
+        <div class="header">
 
-                <div class="due-date">
-                    <ul>
-                        <li>{{dueDay}}</li>
-                        <li>{{dueMonth}}</li>
-                        <li>{{dueYear}}</li>
-                    </ul>
+            <div class="due-date">
+                <ul>
+                    <li>{{dueDay}}</li>
+                    <li>{{dueMonth}}</li>
+                    <li>{{dueYear}}</li>
+                </ul>
+            </div>
+
+            <div class="details">
+                <h3>{{name}}</h3>
+                <div class="timestamps">
+                <p><i class="far fa-clock"></i> Created {{prettyDateCreated}}</p>
+                <p><i class="fas fa-pencil-alt"></i> Modified {{prettyDateModified}}</p>
                 </div>
-
-                <div class="details">
-                    <h3>{{name}}</h3>
-                    <div class="timestamps">
-                        <p><i class="far fa-clock"></i> Created {{prettyDateCreated}}</p>
-                        <p><i class="fas fa-pencil-alt"></i> Modified {{prettyDateModified}}</p>
-                    </div>
-
-                </div>
-
 
             </div>
 
-            <p>{{description}}<a href="#">Read more...</a></p>
+
 
         </div>
-    {{/milestones}}
+
+        <p>{{description}}<a href="#">Read more...</a></p>
+
+    </div>
+{{/milestones}}
 </div>
 
 

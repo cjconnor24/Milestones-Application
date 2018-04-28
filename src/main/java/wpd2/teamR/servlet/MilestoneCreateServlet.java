@@ -47,7 +47,7 @@ public class MilestoneCreateServlet extends BaseServlet {
         // SETUP VIEWBAG TO SEND TO VIEW
         HashMap<String, Object> viewBag = new HashMap<String, Object>();
         FlashMessage message = SessionFunctions.getFlashMessage(request);
-        viewBag.put("mode", "Create");
+        viewBag.put("mode","Create");
         viewBag.put("message", message);
 
         // RENDER CREATE FORM
@@ -91,8 +91,9 @@ public class MilestoneCreateServlet extends BaseServlet {
 
     }
 
-    private Date convertDate(HttpServletRequest request) {
-        String datetimeString = request.getParameter("dueDate");
+    private Date convertDate(HttpServletRequest request)
+    {
+        String datetimeString =  request.getParameter("dueDate");
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         Date date = null;
         try {

@@ -22,12 +22,10 @@ public class MilestoneListServlet extends BaseServlet {
 
     private MilestoneDAO milestones;
 
-    public MilestoneListServlet() {
-        milestones = new MilestoneDAO();
-    }
+    public MilestoneListServlet(){ milestones = new MilestoneDAO();}
 
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void  doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         // CHECK IF USER IS LOGGED IN - IF NOT BOUNCE TO LOGIN
         if (!authOK(request, response)) {
@@ -37,8 +35,8 @@ public class MilestoneListServlet extends BaseServlet {
 //        int parameter = Integer.parseInt(request.getParameter("Identifier"));
 //         setCurrentProject(request,parameter);
         int projectID = getCurrentProject(request);
-        if (projectID == -1) {
-            SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.INFO, "Hmmm something isn't right", "Please select the project again."));
+        if(projectID == -1){
+            SessionFunctions.setFlashMessage(request,new FlashMessage(FlashMessage.FlashType.INFO,"Hmmm something isn't right","Please select the project again."));
             response.sendRedirect("/projects");
             return;
         }
@@ -57,13 +55,16 @@ public class MilestoneListServlet extends BaseServlet {
 
         FlashMessage message = SessionFunctions.getFlashMessage(request);
         viewBag.put("message", message);
-        viewBag.put("projectId", projectID);
+        viewBag.put("projectId",projectID);
         viewBag.put("total", milestoneList.size());
         viewBag.put("milestones", milestoneList);
 
         showView(response, "milestone/milestone-list.mustache", viewBag);
 
     }
+
+
+
 
 
 }

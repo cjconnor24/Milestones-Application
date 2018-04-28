@@ -22,12 +22,10 @@ public class MilestoneDispatcherServlet extends BaseServlet {
 
     private MilestoneDAO milestones;
 
-    public MilestoneDispatcherServlet() {
-        milestones = new MilestoneDAO();
-    }
+    public MilestoneDispatcherServlet(){ milestones = new MilestoneDAO();}
 
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void  doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         // CHECK IF USER IS LOGGED IN - IF NOT BOUNCE TO LOGIN
         if (!authOK(request, response)) {
@@ -42,19 +40,19 @@ public class MilestoneDispatcherServlet extends BaseServlet {
 
             projectID = Integer.parseInt(getUrlParamter(request.getRequestURI()));
 
-        } catch (NumberFormatException error) {
+        } catch(NumberFormatException error){
 
             // UH OH...YOU AINT HACKING MY APP...
-            SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.ERROR, "Uh oh..", "Something went wrong with what you were trying to access."));
+            SessionFunctions.setFlashMessage(request,new FlashMessage(FlashMessage.FlashType.ERROR,"Uh oh..","Something went wrong with what you were trying to access."));
             response.sendRedirect("/projects");
             return;
 
         }
 
         // UPDATE THE SESSION VARIABLE AND REDIRECT TO THE ACTUAL MILESTONE VIEW
-        setCurrentProject(request, projectID);
+        setCurrentProject(request,projectID);
 
-        SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.INFO, "WROTE TO THE SESSION", "SESSION ID WAS WRITTEn - PROJECT IS " + projectID));
+        SessionFunctions.setFlashMessage(request,new FlashMessage(FlashMessage.FlashType.INFO,"WROTE TO THE SESSION","SESSION ID WAS WRITTEn - PROJECT IS "+projectID));
         response.sendRedirect("/milestones");
 
     }

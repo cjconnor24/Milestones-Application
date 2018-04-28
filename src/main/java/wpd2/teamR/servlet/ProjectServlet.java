@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ProjectServlet extends HttpServlet {
+public class ProjectServlet extends HttpServlet{
 
     static final Logger LOG = LoggerFactory.getLogger(LoginServlet.class);
 
@@ -16,17 +16,16 @@ public class ProjectServlet extends HttpServlet {
 
     ProjectDAO projects;
 
-    public ProjectServlet() {
-        projects = new ProjectDAO();
-    }
+    public ProjectServlet(){ projects = new ProjectDAO();}
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+    public void doPost(HttpServletRequest request, HttpServletResponse response){
 
         String hello = "Hello";
 
         System.out.print(hello);
 
-    }
+        }
+
 
 
 }

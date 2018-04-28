@@ -61,7 +61,7 @@ public class LoginServlet extends BaseServlet {
         HashMap<String, Object> viewBag = new HashMap<String, Object>();
 
         FlashMessage message = SessionFunctions.getFlashMessage(request);
-        viewBag.put("hidenav",true); // HIDE THE NAVBAR
+        viewBag.put("hidenav", true); // HIDE THE NAVBAR
         viewBag.put("username", userName);
         viewBag.put("message", message);
 
@@ -150,7 +150,7 @@ public class LoginServlet extends BaseServlet {
         // WRITE THE NEW USER TO THE DATABASE
         if (users.registerUser(newUser)) {
 
-            // TODO: MAYBE EMAIL
+
             // SET A SESSION, WRITE A SUCCESS MESSAGE, AND REDIRECT
             setCurrentUser(request, email);
             SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.SUCCESS, "Successfully Registered", "You have been successfully registered in the sytem. Welcome."));

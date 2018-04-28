@@ -62,7 +62,7 @@ public class ProjectDeleteServlet extends BaseServlet {
 
             FlashMessage message = SessionFunctions.getFlashMessage(request);
             viewBag.put("project", projectToDelete);
-            viewBag.put("message",message);
+            viewBag.put("message", message);
 
             showView(response, "project/project-delete.mustache", viewBag);
         } else {
@@ -85,10 +85,10 @@ public class ProjectDeleteServlet extends BaseServlet {
         String typedEmail = request.getParameter("email");
         String email = getCurrentUser(request);
 
-        if(!email.equals(typedEmail)){
+        if (!email.equals(typedEmail)) {
 
-            SessionFunctions.setFlashMessage(request,new FlashMessage(FlashMessage.FlashType.ERROR,"No match","The email wasn't correct. Please try again."));
-            response.sendRedirect("/projects/delete/"+parameter);
+            SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.ERROR, "No match", "The email wasn't correct. Please try again."));
+            response.sendRedirect("/projects/delete/" + parameter);
             return;
 
         }

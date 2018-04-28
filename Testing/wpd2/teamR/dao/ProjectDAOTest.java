@@ -40,9 +40,9 @@ public class ProjectDAOTest {
     @Test
     public void createProject() {
         ProjectDAO testingDAO = new ProjectDAO();
-        Project project = new Project("Test","Auto Test");
+        Project project = new Project("Test", "Auto Test");
 
-        assertTrue(testingDAO.createProject(project,"chris@chrisconnor.co.uk"));
+        assertTrue(testingDAO.createProject(project, "chris@chrisconnor.co.uk"));
     }
 
     @Test
@@ -58,7 +58,6 @@ public class ProjectDAOTest {
         ProjectDAO testingDAO = new ProjectDAO();
         assertFalse(testingDAO.deleteProjectById(2000));
     }
-
 
 
     @Test
@@ -78,7 +77,7 @@ public class ProjectDAOTest {
     public void getProjectByIdAndUser() throws SQLException {
 
         ProjectDAO testingDAO = new ProjectDAO();
-        assertTrue(testingDAO.getProjectByIdAndUser(2,"chris@chrisconnor.co.uk") != null);
+        assertTrue(testingDAO.getProjectByIdAndUser(2, "chris@chrisconnor.co.uk") != null);
     }
 
     @Test

@@ -1,18 +1,18 @@
 {{>../_partials/site-header}}
 <div class="six columns offset-by-three">
-<h1><i class="far fa-edit"></i> Edit Project</h1>
+    <h1><i class="far fa-edit"></i> Edit Project</h1>
 
-<form id="create-project" method="post">
+    <form id="create-project" method="post">
 
-    <!-- THIS IS LIKE A CHECKSUM TYPETHING TO ENSURE NO TAMPERING -->
-    <input type="hidden" name="id-check" value="{{project.id}}">
-    {{>_partials/project-form}}
+        <!-- THIS IS LIKE A CHECKSUM TYPETHING TO ENSURE NO TAMPERING -->
+        <input type="hidden" name="id-check" value="{{project.id}}">
+        {{>_partials/project-form}}
 
-</form>
+    </form>
 </div>
 {{>../_partials/jquery-validate}}
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $("#create-project").validate({
             rules: {
@@ -20,7 +20,7 @@
                     required: true
                 },
                 description: {
-                    required:true
+                    required: true
                 }
             }
         });

@@ -21,7 +21,7 @@ import java.util.Set;
 /**
  * BASE SERVLET FROM WHICH TO EXTEND ALL OTHER BEHAVIOUR
  */
- class BaseServlet extends HttpServlet {
+class BaseServlet extends HttpServlet {
     @SuppressWarnings("unused")
     static final Logger LOG = LoggerFactory.getLogger(BaseServlet.class);
 
@@ -41,7 +41,7 @@ import java.util.Set;
     /**
      * Constructor for base servlet - initialises the mustache renderer
      */
-     BaseServlet() {
+    BaseServlet() {
         mustache = new MustacheRenderer();
     }
 
@@ -133,6 +133,7 @@ import java.util.Set;
         HttpSession session = request.getSession(true);
         session.setAttribute("projectId", projectId);
     }
+
     protected void clearCurrentProject(HttpServletRequest request) {
         HttpSession session = request.getSession(true);
         session.removeAttribute("projectId"); // TODO: FIX THIS
@@ -140,7 +141,7 @@ import java.util.Set;
 
     protected int getCurrentProject(HttpServletRequest request) {
 
-    HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession(false);
 
         if (session == null) {
             return -1;
@@ -152,7 +153,7 @@ import java.util.Set;
                 int val = (int) session.getAttribute("projectId");
                 return val;
 
-            } catch(NullPointerException error){
+            } catch (NullPointerException error) {
 
                 return -1;
 
@@ -161,12 +162,11 @@ import java.util.Set;
 
         }
 
-        }
+    }
 
-    protected String getUrlParamter(String url)
-    {
+    protected String getUrlParamter(String url) {
         String[] urlComponents = url.split("/");
-        String parameter = urlComponents[urlComponents.length-1];
+        String parameter = urlComponents[urlComponents.length - 1];
 
         return parameter;
     }

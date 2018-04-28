@@ -1,7 +1,9 @@
 <label for="name">Milestone Name</label>
-<input class="u-full-width" type="text" id="name" placeholder="Enter Project name" name="name" value="{{project.name}}" required>
+<input class="u-full-width" type="text" id="name" placeholder="Enter Project name" name="name" value="{{project.name}}"
+       required>
 
 <label for="description">Project Description</label>
-<textarea class="u-full-width" placeholder="Please enter your project description" id="description" name="description" required>{{project.description}}</textarea>
+<textarea class="u-full-width" placeholder="Please enter your project description" id="description" name="description"
+          required>{{project.description}}</textarea>
 <a href="/projects" class="button"><i class="fas fa-arrow-left"></i> Return to Projects</a>
 <button class="button-primary" type="submit"><i class="far fa-save"></i> {{mode}} Project</button>

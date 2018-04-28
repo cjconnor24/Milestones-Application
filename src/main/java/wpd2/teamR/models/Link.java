@@ -12,7 +12,7 @@ public class Link {
     private String urlHash;
     private Timestamp dateCreated;
     private Timestamp dateLastAccessed;
-    private int projectID; // DON'T KNOW IF WE NEED THIS? PROJECT BELOW MIGHT BE FINE
+    private int projectID;
     private Project project;
 
     public Link(int id, String email, Timestamp dateCreated, Timestamp dateLastAccessed) {

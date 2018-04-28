@@ -16,11 +16,9 @@ public class Milestone {
     private Timestamp dateModified;
     private Timestamp dueDate;
     private Timestamp dateCompleted;
+    private int projectID;
 
-    private int projectID; // AGAIN, I DONT THINK WE NEED THIS TO BE HONEST ?
-
-    public Milestone(int id, String name, String desc, Timestamp dateCreated, Timestamp dateMod, Timestamp dateDue, Timestamp dateComplete, int projectID)
-    {
+    public Milestone(int id, String name, String desc, Timestamp dateCreated, Timestamp dateMod, Timestamp dateDue, Timestamp dateComplete, int projectID) {
         this.id = id;
         this.name = name;
         this.description = desc;
@@ -30,8 +28,7 @@ public class Milestone {
         this.dateCompleted = dateComplete;
     }
 
-    public Milestone(String name, String desc, Timestamp dateMod, Timestamp dateDue, Timestamp dateComplete, int projectID)
-    {
+    public Milestone(String name, String desc, Timestamp dateMod, Timestamp dateDue, Timestamp dateComplete, int projectID) {
         this.name = name;
         this.description = desc;
         this.dateModified = dateMod;
@@ -46,18 +43,18 @@ public class Milestone {
 
 
     // THE BELOW GETTERS FACILITATE MUSTACHE
-    public String getPrettyDateCreated(){
+    public String getPrettyDateCreated() {
         PrettyTime p = new PrettyTime();
         return p.format(this.getDateCreated());
     }
 
-    public String getPrettyDateModified(){
+    public String getPrettyDateModified() {
         PrettyTime p = new PrettyTime();
         return p.format(this.getDateModified());
     }
 
 
-    public String getDueDay(){
+    public String getDueDay() {
 
         long timestamp = this.dueDate.getTime();
         Calendar cal = Calendar.getInstance();
@@ -67,7 +64,7 @@ public class Milestone {
 
     }
 
-    public int getDueMonth(){
+    public int getDueMonth() {
 
         long timestamp = this.dueDate.getTime();
         Calendar cal = Calendar.getInstance();
@@ -76,7 +73,7 @@ public class Milestone {
         return cal.get(Calendar.MONTH);
     }
 
-    public String getDueYear(){
+    public String getDueYear() {
 
         long timestamp = this.dueDate.getTime();
         Calendar cal = Calendar.getInstance();

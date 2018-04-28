@@ -75,7 +75,7 @@ public class MilestoneEditServlet extends BaseServlet {
 
             HashMap<String, Object> viewBag = new HashMap<String, Object>();
             FlashMessage message = SessionFunctions.getFlashMessage(request);
-            viewBag.put("mode","Edit"); //MAY NEED DELETE DEPENDING ON APPROCH!!
+            viewBag.put("mode", "Edit"); //MAY NEED DELETE DEPENDING ON APPROCH!!
             viewBag.put("milestone", milestone);
 
             showView(response, "milestone/milestone-edit.mustache", viewBag);
@@ -100,11 +100,11 @@ public class MilestoneEditServlet extends BaseServlet {
 
 
         // CHECK THE PARAMETER MATCHES WHAT WAS SUBMITTED
-        if(milestoneID == checkParameter){
+        if (milestoneID == checkParameter) {
 
             //=====================UGLY TIMESTAMP PARSEING - SOMEONE REFACTOR=============================
 
-            String datetimeString =  request.getParameter("dueDate");
+            String datetimeString = request.getParameter("dueDate");
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             Date date = null;
             try {
@@ -136,7 +136,6 @@ public class MilestoneEditServlet extends BaseServlet {
             SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.ERROR, "Uh oh...", "The form request does match"));
 
         }
-
 
 
         response.sendRedirect("/milestones");

@@ -15,32 +15,34 @@
     <!--THIS WILL BE LOOPED FOR EACH PROJECT IN LIST-->
     <!--TODO: NEEDS VARIABLES ADDED-->
     {{#links}}
-    <div class="link" data-id="{{urlHash}}">
+        <div class="link" data-id="{{urlHash}}">
 
-        <div class="link-icon">
-            <span><i class="fa fa-link"></i></span>
+            <div class="link-icon">
+                <span><i class="fa fa-link"></i></span>
+            </div>
+
+            <div class="details">
+                <p class="details__email">{{email}}</p>
+                <p class="details__project">{{project.name}}</p>
+
+                <!-- <div class="timestamps">
+                    <p><i class="far fa-clock"></i> Created </p>
+                    <p><i class="fas fa-pencil-alt"></i> Modified </p>
+                </div> -->
+
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#" class="copy-link" title="Copy Link"><i
+                            class="far fa-copy"></i><span>Copy Link</span></a></li>
+                    <li><a href="#" title="Send Link"><i class="fas fa-envelope"></i><span>Link</span></a></li>
+                    <li><a href="/links/delete/{{id}}" title="Delete Link"><i
+                            class="fas fa-trash-alt"></i><span>Delete</span></a></li>
+                </ul>
+            </div>
+
         </div>
-
-        <div class="details">
-            <p class="details__email">{{email}}</p>
-            <p class="details__project">{{project.name}}</p>
-
-            <!-- <div class="timestamps">
-                <p><i class="far fa-clock"></i> Created </p>
-                <p><i class="fas fa-pencil-alt"></i> Modified </p>
-            </div> -->
-
-        </div>
-
-        <div class="menu">
-            <ul>
-                <li><a href="#" class="copy-link" title="Copy Link"><i class="far fa-copy"></i><span>Copy Link</span></a></li>
-                <li><a href="#" title="Send Link"><i class="fas fa-envelope"></i><span>Link</span></a></li>
-                <li><a href="/links/delete/{{id}}" title="Delete Link"><i class="fas fa-trash-alt"></i><span>Delete</span></a></li>
-            </ul>
-        </div>
-
-    </div>
     {{/links}}
 
 

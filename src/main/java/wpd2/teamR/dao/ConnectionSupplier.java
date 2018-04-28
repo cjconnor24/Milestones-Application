@@ -6,8 +6,6 @@ import java.sql.SQLException;
 
 public class ConnectionSupplier {
 
-//    public static final String MEMORY = "jdbc:h2:mem:test";
-//    public static final String FILE = "jdbc:h2:~/test";
 
     // CONNECTION DETAILS
     private static final String servername = "localhost";
@@ -17,10 +15,9 @@ public class ConnectionSupplier {
     private static final String db = "milestones";
     private static final String connectionString = "jdbc:mysql://" + servername + ":" + port + "/" + db;
 
-//    private final String db;
 
     public ConnectionSupplier() {
-//        this.db = db;
+
     }
 
     public Connection provide() {

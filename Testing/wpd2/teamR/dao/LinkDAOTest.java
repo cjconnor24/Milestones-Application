@@ -15,7 +15,7 @@ public class LinkDAOTest {
 
         LinkDAO testingDAO = new LinkDAO();
         Link link = new Link("testclass@hotmail.com");
-        assertTrue(testingDAO.save(link,6));
+        assertTrue(testingDAO.save(link, 6));
     }
 
     @AfterClass
@@ -30,7 +30,7 @@ public class LinkDAOTest {
 
         LinkDAO testingDAO = new LinkDAO();
         Link link = new Link("testclass2@hotmail.com");
-        assertTrue(testingDAO.save(link,6));
+        assertTrue(testingDAO.save(link, 6));
     }
 
     @Test
@@ -45,21 +45,21 @@ public class LinkDAOTest {
     @Test
     public void findByProjectId() throws SQLException {
         LinkDAO testingDAO = new LinkDAO();
-        List<Link> links =  testingDAO.findByProjectId(6);
+        List<Link> links = testingDAO.findByProjectId(6);
         assertFalse(links.isEmpty());
     }
 
     @Test
-    public void findByUserId() throws SQLException{
+    public void findByUserId() throws SQLException {
         LinkDAO testingDAO = new LinkDAO();
-        List<Link> links =  testingDAO.findByUserId(4);
+        List<Link> links = testingDAO.findByUserId(4);
         assertEquals(links.size(), 2);
     }
 
     @Test
-    public void findAll() throws SQLException{
+    public void findAll() throws SQLException {
         LinkDAO testingDAO = new LinkDAO();
-        List<Link> links =  testingDAO.findAll();
+        List<Link> links = testingDAO.findAll();
         assertFalse(links.isEmpty());
     }
 

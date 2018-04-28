@@ -364,7 +364,7 @@ public class LinkDAO extends DAOBase {
         while (rs.next()) {
             //ADD NEW PROJECT WITH CURRENT RESULTSET DETAILS
             links.add(new Link(rs.getInt("id"), rs.getString("email")
-                    , rs.getTimestamp("dateCreated"), rs.getTimestamp("dateLastAccessed"), rs.getInt("projectID"),rs.getString("urlHash")));
+                    , rs.getTimestamp("dateCreated"), rs.getTimestamp("dateLastAccessed"), rs.getInt("projectID"), rs.getString("urlHash")));
         }
 
         return links;
@@ -387,7 +387,7 @@ public class LinkDAO extends DAOBase {
         while (rs.next()) {
             //ADD NEW PROJECT WITH CURRENT RESULTSET DETAILS
             link = new Link(rs.getInt("id"), rs.getString("email")
-                    , rs.getTimestamp("dateCreated"), rs.getTimestamp("dateLastAccessed"), rs.getInt("projectID"),rs.getString("urlHash"));
+                    , rs.getTimestamp("dateCreated"), rs.getTimestamp("dateLastAccessed"), rs.getInt("projectID"), rs.getString("urlHash"));
         }
 
         return link;
@@ -396,10 +396,11 @@ public class LinkDAO extends DAOBase {
 
     /**
      * Generate a short hash - like TinyURL or similar
+     *
      * @param link
      * @return
      */
-    private String generateUriHash(Link link){
+    private String generateUriHash(Link link) {
 
         // Convert string to bytes
         byte bytes[] = link.toString().getBytes();

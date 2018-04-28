@@ -70,7 +70,7 @@ public class MilestoneDeleteServlet extends BaseServlet {
         Milestone milestoneToDelete = null;
 
         //GETTING PROJECT TO BE DELETED
-        milestoneToDelete = milestones.getMilestoneByIdandUser(id,email);
+        milestoneToDelete = milestones.getMilestoneByIdandUser(id, email);
 
         if (milestoneToDelete != null) {
             HashMap<String, Object> viewBag = new HashMap<String, Object>();
@@ -100,7 +100,7 @@ public class MilestoneDeleteServlet extends BaseServlet {
         if (milestones.deleteMilestoneById(parameter)) {
             SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.SUCCESS, "Milestone Deleted", "The Milestone was deleted"));
         } else {
-           SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.ERROR, "Milestone Could Not Be Deleted", "The Milestone was not deleted!"));
+            SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.ERROR, "Milestone Could Not Be Deleted", "The Milestone was not deleted!"));
         }
 
         response.sendRedirect("/milestones");

@@ -72,7 +72,7 @@ public class MilestoneDAO extends DAOBase {
 
             // PASS THROUGH THE id INTO THE PREPARED STATEMENT
             ps.setInt(1, id);
-            ps.setString(2,email);
+            ps.setString(2, email);
 
             ResultSet rs = ps.executeQuery();
 
@@ -106,7 +106,7 @@ public class MilestoneDAO extends DAOBase {
      * Get all milestones in a project
      *
      * @param projectId ID of project containing milestones
-     * @param email    ID of user
+     * @param email     ID of user
      * @return List of all milestones in a project
      * @throws SQLException
      */
@@ -188,7 +188,7 @@ public class MilestoneDAO extends DAOBase {
     //Method to try and get milestones of a project.
     //This is one I wrote myself, not Gavin's, think the mySQL query isnt correct
 
-    public List<Milestone> getAllMilestonesByProjectId(int id) throws SQLException{
+    public List<Milestone> getAllMilestonesByProjectId(int id) throws SQLException {
 
         final String GET_MILESTONES = "SELECT * FROM milestones WHERE projectID = ?";
 
@@ -227,7 +227,7 @@ public class MilestoneDAO extends DAOBase {
 
     /**
      * @param milestone object with details to be written
-     * @param projectId     the project to add the milestone to
+     * @param projectId the project to add the milestone to
      * @return boolean determining success or failure
      * @throws SQLException
      */
@@ -258,7 +258,6 @@ public class MilestoneDAO extends DAOBase {
 
 
     /**
-     *
      * @param id of milestone to delete
      * @return boolean determining success or failure
      */
@@ -266,13 +265,13 @@ public class MilestoneDAO extends DAOBase {
 
         String DELETE_MILESTONE = "DELETE FROM milestones WHERE id = ?";
 
-        try(PreparedStatement ps = getConnection().prepareStatement(DELETE_MILESTONE)) {
+        try (PreparedStatement ps = getConnection().prepareStatement(DELETE_MILESTONE)) {
 
             //Pass ID into prepared statement
             ps.setInt(1, id);
 
             int count = ps.executeUpdate();
-            LOG.debug ("insert count=" + count);
+            LOG.debug("insert count=" + count);
 
             //Return true or false
             return determineTrueFalse(count);
@@ -317,7 +316,6 @@ public class MilestoneDAO extends DAOBase {
     }
 
 
-
     /**
      * Private method that returns true of false depending on int value
      * Used to cut down repetitive code
@@ -337,7 +335,6 @@ public class MilestoneDAO extends DAOBase {
 
         }
     }
-
 
 
 }

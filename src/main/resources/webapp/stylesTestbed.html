@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,23 +15,23 @@
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        $(function(){
+        $(function () {
 
-            $('#new-project').click(function(e){
+            $('#new-project').click(function (e) {
                 e.preventDefault();
                 console.log('This worked');
                 $('.modal').fadeIn(100);
             });
 
             // CLOSE OPEN FLASH MESSAGE
-            $('.flash').find('.close').click(function(e){
+            $('.flash').find('.close').click(function (e) {
                 $(this).parent().slideUp('fast');
             });
 
             // FADE FLASH MESSAGE AFTER 5 SECS
             // $(".flash").delay(5000).slideUp("slow");
 
-            $('.modal .close').click(function(e){
+            $('.modal .close').click(function (e) {
                 $('.modal').fadeOut(100);
             });
 
@@ -83,7 +82,8 @@
 
             <div style="text-align:center">
                 <h1><i class="fas fa-link"></i> Shared Link Login</h1>
-                <p>Someone has shared their project timeline with you. To continue, please enter the email which you received this
+                <p>Someone has shared their project timeline with you. To continue, please enter the email which you
+                    received this
                     link on.</p>
             </div>
 
@@ -100,11 +100,11 @@
                 <form action="/login" method="post">
 
 
-                    
-                    <input type="email" class="u-full-width" name="email" value="" placeholder="john.smith@milestones.com" required>
-                    
+                    <input type="email" class="u-full-width" name="email" value=""
+                           placeholder="john.smith@milestones.com" required>
 
-                    <button type="submit" ><i class="fas fa-sign-in-alt"></i>   Continue</button>
+
+                    <button type="submit"><i class="fas fa-sign-in-alt"></i> Continue</button>
 
                 </form>
             </div>
@@ -133,9 +133,7 @@
         <footer>
 
 
-
             <div class="container">
-
 
 
                 <ul>

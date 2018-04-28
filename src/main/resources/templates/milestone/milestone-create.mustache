@@ -14,13 +14,12 @@
     </form>
 
 
-
 </div>
 
 <script src="/js/zebra_datepicker.min.js"></script>
 {{>../_partials/jquery-validate}}
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         // VALIDATE THE CREATE FORM
         $("#create-milestone").validate({
@@ -29,7 +28,7 @@
                     required: true
                 },
                 description: {
-                    required:true
+                    required: true
                 }
             }
         });

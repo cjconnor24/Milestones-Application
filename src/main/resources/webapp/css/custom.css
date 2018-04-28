@@ -208,20 +208,21 @@ h4 i {
   padding:0;
 }
 .menu ul li a {
-  height:40px;
-  width:40px;
+  height:50px;
+  width:50px;
   display:inline-block;
   background: var(--blue);
   border-radius: 50%;
   transition:0.3s;
+  font-size:1.2em;
 }
 .menu ul li:nth-child(1) a {  background: var(--gray);}
 .menu ul li:nth-child(2) a {  background: var(--green);}
 .menu ul li:nth-child(3) a {  background: var(--red);}
 .menu ul li a i {
-  width:40px;
-  height:40px;
-  line-height: 40px;
+  width:50px;
+  height:50px;
+  line-height: 50px;
   margin:0!important;
   padding:0!important;
   color:#FFF;

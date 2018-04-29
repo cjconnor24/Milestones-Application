@@ -11,7 +11,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 
 public class MilestoneCreateServlet extends BaseServlet {
@@ -51,12 +59,19 @@ public class MilestoneCreateServlet extends BaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // BUILD THE NEW MILESTONE - TODO: SERVER SIDE VALIDATION - jQuery / html catching for now.
+
+
+        int projectId = getCurrentProject(request);
+
+        Date date = convertDate(request);
+
         Milestone m = new Milestone();
+
         m.setName(request.getParameter("name"));
         m.setDescription(request.getParameter("description"));
-        m.setDueDate(Timestamp.valueOf(request.getParameter("dueDate")));
-        m.setDateCompleted(null);
-        m.setProjectID(Integer.parseInt(request.getParameter("projectID")));
+        m.setDueDate(new Timestamp(date.getTime()));
+        m.setProjectID(projectId);
+
 
         // IF IT WAS SUCCESSFULLY CREATED
         if (milestones.createMilestone(m, m.getProjectID())) {
@@ -71,8 +86,23 @@ public class MilestoneCreateServlet extends BaseServlet {
             // SOMETHING WENT WRONG - SEND THEM BACK TO FORM WITH ERROR
             SessionFunctions.setFlashMessage(request, new FlashMessage(FlashMessage.FlashType.ERROR, "Uh oh...", "Sorry, something went wrong"));
             response.sendRedirect("/milestones/create");
+            return;
         }
 
+    }
+
+    private Date convertDate(HttpServletRequest request)
+    {
+        String datetimeString =  request.getParameter("dueDate");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        Date date = null;
+        try {
+            date = sdf.parse(datetimeString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return date;
     }
 
 

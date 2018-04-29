@@ -1,8 +1,6 @@
 package wpd2.teamR.dao;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import wpd2.teamR.models.Link;
 
 import java.sql.SQLException;
@@ -12,21 +10,26 @@ import static org.junit.Assert.*;
 
 public class LinkDAOTest {
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void setUp() throws Exception {
+
+        LinkDAO testingDAO = new LinkDAO();
+        Link link = new Link("testclass@hotmail.com");
+        assertTrue(testingDAO.save(link,6));
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterClass
+    public static void tearDown() throws Exception {
         LinkDAO testingDAO = new LinkDAO();
         testingDAO.deleteByEmail("testclass@hotmail.com");
+        testingDAO.deleteByEmail("testclass2@hotmail.com");
     }
 
     @Test
     public void save() throws SQLException {
 
         LinkDAO testingDAO = new LinkDAO();
-        Link link = new Link("testclass@hotmail.com");
+        Link link = new Link("testclass2@hotmail.com");
         assertTrue(testingDAO.save(link,6));
     }
 
@@ -34,8 +37,8 @@ public class LinkDAOTest {
     public void findById() throws SQLException {
 
         LinkDAO testingDAO = new LinkDAO();
-        Link link = testingDAO.findById(6);
-        assertEquals(link.getId(), 6);
+        Link link = testingDAO.findById(44);
+        assertTrue(link != null);
 
     }
 
@@ -43,7 +46,7 @@ public class LinkDAOTest {
     public void findByProjectId() throws SQLException {
         LinkDAO testingDAO = new LinkDAO();
         List<Link> links =  testingDAO.findByProjectId(6);
-        assertEquals(links.size(), 4);
+        assertFalse(links.isEmpty());
     }
 
     @Test
@@ -57,22 +60,14 @@ public class LinkDAOTest {
     public void findAll() throws SQLException{
         LinkDAO testingDAO = new LinkDAO();
         List<Link> links =  testingDAO.findAll();
-        assertEquals(links.size(), 7);
+        assertFalse(links.isEmpty());
     }
 
-
-    @Test
-    public void delete() {
-
-        LinkDAO testingDAO = new LinkDAO();
-        Link link = new Link("chris@hotmail.com",8);
-        link.setId(8);
-        assertTrue(testingDAO.delete(link));
-    }
 
     @Test
     public void deleteByEmail() {
         LinkDAO testingDAO = new LinkDAO();
-        assertTrue(testingDAO.deleteByEmail("chris@hotmail.com"));
+
+        assertTrue(testingDAO.deleteByEmail("testclass2@hotmail.com"));
     }
 }

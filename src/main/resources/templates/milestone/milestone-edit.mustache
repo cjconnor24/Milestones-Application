@@ -1,29 +1,14 @@
 {{>../_partials/site-header}}
-{{>../_partials/flash-message}}
 
 <link rel="stylesheet" href="/css/dateTimePicker/bootstrap/zebra_datepicker.min.css">
+<div class="six columns offset-by-three">
+    <h1><i class="far fa-edit"></i> Edit Milestone</h1>
+    <form id="edit-milestone" method="post" action="/milestones/edit/{{milestone.id}}">
 
-<div class="eight columns offset-by-two">
-
-    <h1><i class="far fa-calendar-plus"></i> Create Milestone</h1>
-
-
-    <form id="create-milestone" method="post" action="/milestones/create">
-
+        <input type="hidden" name="id-check" value="{{milestone.id}}">
         {{>_partials/milestone-form}}
 
     </form>
-
-
-    <script>
-        $(document).ready(function() {
-            $('#dueDate').Zebra_DatePicker({
-                format: 'd-m-Y H:i'
-            });
-
-        });
-    </script>
-
 </div>
 
 <script src="/js/zebra_datepicker.min.js"></script>
@@ -31,8 +16,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        // VALIDATE THE CREATE FORM
-        $("#create-milestone").validate({
+        $("#create-project").validate({
             rules: {
                 name: {
                     required: true
@@ -42,6 +26,7 @@
                 }
             }
         });
+
 
     });
 

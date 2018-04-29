@@ -36,16 +36,20 @@ public class MilestoneListServlet extends BaseServlet {
 //         setCurrentProject(request,parameter);
         int projectID = getCurrentProject(request);
         if(projectID == -1){
-            SessionFunctions.setFlashMessage(request,new FlashMessage(FlashMessage.FlashType.INFO,"Hmmm something isn't right","Something wasn't quite right there. Please try again."));
-            response.sendRedirect("/project");
+            SessionFunctions.setFlashMessage(request,new FlashMessage(FlashMessage.FlashType.INFO,"Hmmm something isn't right","Please select the project again."));
+            response.sendRedirect("/projects");
             return;
         }
 
         List<Milestone> milestoneList = new ArrayList<>();
+//        try {
         try {
             milestoneList = milestones.getAllMilestonesByProjectId(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        catch (SQLException error){}
+//        }
+//        catch (SQLException error){}
 
         HashMap<String, Object> viewBag = new HashMap<String, Object>();
 

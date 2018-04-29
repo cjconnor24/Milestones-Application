@@ -9,6 +9,7 @@ public class Link {
 
     private int id;
     private String email;
+    private String urlHash;
     private Timestamp dateCreated;
     private Timestamp dateLastAccessed;
     private int projectID; // DON'T KNOW IF WE NEED THIS? PROJECT BELOW MIGHT BE FINE
@@ -27,6 +28,15 @@ public class Link {
         this.dateCreated = dateCreated;
         this.dateLastAccessed = dateLastAccessed;
         this.projectID = projectID;
+    }
+
+    public Link(int id, String email, Timestamp dateCreated, Timestamp dateLastAccessed, int projectID, String urlHash) {
+        this.id = id;
+        this.email = email;
+        this.dateCreated = dateCreated;
+        this.dateLastAccessed = dateLastAccessed;
+        this.projectID = projectID;
+        this.urlHash = urlHash;
     }
 
     public Link(String email, Timestamp dateCreated, Timestamp dateLastAccessed) {

@@ -29,6 +29,7 @@ public class MilestoneDAO extends DAOBase {
      * @return Milestone object of the received project
      * @throws SQLException
      */
+
     public Milestone getMilestonesById(int id) throws SQLException {
 
         final String GET_MILESTONE = "SELECT * FROM milestones WHERE id=?";
@@ -64,6 +65,42 @@ public class MilestoneDAO extends DAOBase {
         }
     }
 
+    public Milestone getMilestoneByIdandUser(int id, String email) {
+        final String GET_MILESTONE = "SELECT milestones.* FROM milestones JOIN projects ON milestones.projectID = projects.id WHERE milestones.id = ? AND projects.userID = (SELECT id FROM users WHERE email = ? LIMIT 1 )";
+
+        try (PreparedStatement ps = connection.prepareStatement(GET_MILESTONE)) {
+
+            // PASS THROUGH THE id INTO THE PREPARED STATEMENT
+            ps.setInt(1, id);
+            ps.setString(2,email);
+
+            ResultSet rs = ps.executeQuery();
+
+            // LOOP THROUGH RESULTS - SHOULD ONLY BE ONE
+            Milestone milestone = null;
+            while (rs.next()) {
+                //ADD NEW PROJECT WITH CURRENT RESULTSET DETAILS
+
+                milestone = new Milestone(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("description"),
+                        rs.getTimestamp("dateCreated"),
+                        rs.getTimestamp("dateModified"),
+                        rs.getTimestamp("dueDate"),
+                        rs.getTimestamp("dateCompleted"),
+                        rs.getInt("projectID")
+                );
+            }
+
+            return milestone;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
     /**
      * Get all milestones in a project
@@ -73,6 +110,7 @@ public class MilestoneDAO extends DAOBase {
      * @return List of all milestones in a project
      * @throws SQLException
      */
+
     public List<Milestone> getAllMilestonesByProjectAndUser(int projectId, String email) throws SQLException {
 
         final String GET_MILESTONES = "SELECT milestones.* FROM milestones JOIN projects ON milestones.projectID = projects.id WHERE projects.userID =? AND milestones.projectID =?";
@@ -97,7 +135,46 @@ public class MilestoneDAO extends DAOBase {
                                 result.getTimestamp("dueDate"),
                                 result.getTimestamp("dateCompleted"),
                                 result.getInt("projectID")
-                        ));
+
+                        )
+                );
+            }
+            return allMilestones;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public List<Milestone> getGuestMilestones(String email, String urlHash) throws SQLException {
+
+        final String GET_MILESTONES = "SELECT milestones.* from milestones JOIN projects ON projects.id = milestones.projectID WHERE milestones.projectID = (SELECT projectID FROM links WHERE urlHash = ? AND email = ? LIMIT 1);";
+
+        try (PreparedStatement ps = connection.prepareStatement(GET_MILESTONES)) {
+
+            //Pass ID's into statement
+            ps.setString(1, urlHash);
+            ps.setString(2, email);
+
+            ResultSet result = ps.executeQuery();
+
+            List<Milestone> allMilestones = new ArrayList<Milestone>();
+            while (result.next()) {
+                allMilestones.add(
+                        new Milestone(
+                                result.getInt("id"),
+                                result.getString("name"),
+                                result.getString("description"),
+                                result.getTimestamp("dateCreated"),
+                                result.getTimestamp("dateModified"),
+                                result.getTimestamp("dueDate"),
+                                result.getTimestamp("dateCompleted"),
+                                result.getInt("projectID")
+
+                        )
+                );
             }
             return allMilestones;
 
@@ -110,6 +187,7 @@ public class MilestoneDAO extends DAOBase {
 
     //Method to try and get milestones of a project.
     //This is one I wrote myself, not Gavin's, think the mySQL query isnt correct
+
     public List<Milestone> getAllMilestonesByProjectId(int id) throws SQLException{
 
         final String GET_MILESTONES = "SELECT * FROM milestones WHERE projectID = ?";
@@ -136,7 +214,7 @@ public class MilestoneDAO extends DAOBase {
                         )
                 );
             }
-            System.out.print(allMilestones); // Just put here to test SQL statement.
+
             return allMilestones;
 
 
@@ -170,6 +248,7 @@ public class MilestoneDAO extends DAOBase {
             //Return true or false
             return determineTrueFalse(count);
 
+
         } catch (SQLException e) {
             LOG.debug(e.toString());
             return false;
@@ -197,7 +276,6 @@ public class MilestoneDAO extends DAOBase {
 
             //Return true or false
             return determineTrueFalse(count);
-
 
 
         } catch (SQLException e) {

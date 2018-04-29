@@ -1,0 +1,22 @@
+{{>../_partials/site-header}}
+
+<div class="panel warning">
+    <div class="panel-heading"><i class="fas fa-exclamation-triangle"></i> Warning!</div>
+    <div class="panel-content">
+        <p>Are you sure you wish to permanently delete the link for "{{link.email}}"?</p>
+
+        <form action = "/links/delete/{{link.id}}" method = "POST">
+        <p class="button-row">
+            <a href="/projects" class="button">Cancel</a>
+            <button class="button danger" type="submit"><i class="fas fa-trash-alt"></i> Confirm</button>
+        </p>
+    </form>
+
+
+</div>
+
+
+
+</div>
+
+{{>../_partials/site-footer}}

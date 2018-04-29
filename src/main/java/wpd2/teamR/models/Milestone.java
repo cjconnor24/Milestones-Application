@@ -19,10 +19,6 @@ public class Milestone {
 
     private int projectID; // AGAIN, I DONT THINK WE NEED THIS TO BE HONEST ?
 
-    public Milestone(){
-
-    }
-
     public Milestone(int id, String name, String desc, Timestamp dateCreated, Timestamp dateMod, Timestamp dateDue, Timestamp dateComplete, int projectID)
     {
         this.id = id;
@@ -32,9 +28,21 @@ public class Milestone {
         this.dateModified = dateMod;
         this.dueDate = dateDue;
         this.dateCompleted = dateComplete;
+    }
+
+    public Milestone(String name, String desc, Timestamp dateMod, Timestamp dateDue, Timestamp dateComplete, int projectID)
+    {
+        this.name = name;
+        this.description = desc;
+        this.dateModified = dateMod;
+        this.dueDate = dateDue;
+        this.dateCompleted = dateComplete;
         this.projectID = projectID;
     }
 
+    public Milestone() {
+
+    }
 
 
     // THE BELOW GETTERS FACILITATE MUSTACHE

@@ -13,8 +13,8 @@ public class Project {
     private int id;
     private String name;
     private String description;
-    private Timestamp dateCreated;
-    private Timestamp dateModified;
+    private java.sql.Timestamp dateCreated;
+    private java.sql.Timestamp dateModified;
     private List<Milestone> milestones; // NOT SURE WHATS GOING ON HERE. MAKE THIS A HASHMAP TO RETRIEVE SINGLE Milestones? Dunno ¯\_(ツ)_/¯
 
     //private List<Milestone> milestones;  <= NAV VARIABLE / UNSURE

@@ -55,12 +55,13 @@ public class LoginServlet extends BaseServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String userName = UserFuncs.getCurrentUser(request);
+        String userName = getCurrentUser(request);
 
 
         HashMap<String, Object> viewBag = new HashMap<String, Object>();
 
         FlashMessage message = SessionFunctions.getFlashMessage(request);
+        viewBag.put("hidenav",true); // HIDE THE NAVBAR
         viewBag.put("username", userName);
         viewBag.put("message", message);
 

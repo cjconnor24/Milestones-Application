@@ -1,0 +1,27 @@
+
+<label for="name">Milestone Name</label>
+<input class="u-full-width" type="text" id="name" placeholder="Enter Milestone name" name="name" value="{{milestone.name}}" required>
+
+<label for="description">Milestone Description</label>
+<textarea class="u-full-width" placeholder="Please enter your project description" id="description" name="description" required>{{milestone.description}}</textarea>
+
+<label for="dueDate">Due Date</label>
+<input class="u-full-width" type="text" id="datepicker" placeholder="Enter Milestone Due Date" name="dueDate" value="{{milestone.dueDate}}" required>
+
+<a class="button" href="/milestones"><i class="fas fa-arrow-left"></i> Return to Milestones</a>
+<button class="button-primary success" type="submit"><i class="far fa-save"></i> Save Milestone</button>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        // ENABLE DATE PICKER
+        $('#datepicker').Zebra_DatePicker({
+            format: 'd-m-Y H:i',
+            show_icon: false,
+            open_on_focus: true,
+            direction: true
+        });
+
+    });
+</script>
+

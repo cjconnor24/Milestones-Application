@@ -6,17 +6,7 @@
         metadata-complete="false"
         version="3.0">
 
-    <display-name>Example WebApp</display-name>
-
-    <servlet>
-        <servlet-name>PublicPageServlet</servlet-name>
-        <servlet-class>wpd2.teamR.servlet.PublicPageServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>PublicPageServlet</servlet-name>
-        <url-pattern>/public/*</url-pattern>
-    </servlet-mapping>
+    <display-name>Milestone Web Application</display-name>
     
     <servlet>
         <servlet-name>ProjectServlet</servlet-name>

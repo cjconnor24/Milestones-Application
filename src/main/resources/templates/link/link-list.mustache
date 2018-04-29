@@ -1,0 +1,93 @@
+{{>../_partials/site-header}}
+
+
+<h1><i class="fas fa-link"></i> Shared Links</h1>
+<p>Below are the current shared links</p>
+<p><a href="/links/create" class="button button-primary success"><i class="fas fa-link"></i> Create New Link</a></p>
+
+{{>../_partials/flash-message}}
+{{^links}}
+    <p class="no-results">There are currently no links. You can create a new one by clicking the link above.</p>
+{{/links}}
+
+<div class="link-list">
+
+    <!--THIS WILL BE LOOPED FOR EACH PROJECT IN LIST-->
+    <!--TODO: NEEDS VARIABLES ADDED-->
+    {{#links}}
+    <div class="link" data-id="{{urlHash}}">
+
+        <div class="link-icon">
+            <span><i class="fa fa-link"></i></span>
+        </div>
+
+        <div class="details">
+            <p class="details__email">{{email}}</p>
+            <p class="details__project">{{project.name}}</p>
+
+            <!-- <div class="timestamps">
+                <p><i class="far fa-clock"></i> Created </p>
+                <p><i class="fas fa-pencil-alt"></i> Modified </p>
+            </div> -->
+
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="#" class="copy-link" title="Copy Link"><i class="far fa-copy"></i><span>Copy Link</span></a></li>
+                <li><a href="#" title="Send Link"><i class="fas fa-envelope"></i><span>Link</span></a></li>
+                <li><a href="/links/delete/{{id}}" title="Delete Link"><i class="fas fa-trash-alt"></i><span>Delete</span></a></li>
+            </ul>
+        </div>
+
+    </div>
+    {{/links}}
+
+
+</div>
+
+<script>
+    $(function () {
+
+        $(".copy-link").click(function (e) {
+            e.preventDefault();
+
+            var urlScheme = "http://localhost:9001/shared/";
+
+            // WIPE ANY EXISTING FLASH
+            $(document).find(".flash.success").not(".flash.blank").remove();
+
+
+            // CREATE A TEMP - PULL THE DATA-ID AND BUILD THE LINK
+            var $temp = $("<input>");
+            $(this).parent().append($temp);
+            $temp.val(urlScheme + $(this).closest(".link").data("id")).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+            // CREATE THE FLASH OBJECT AND POPULATE
+            var templateString = '<div class="flash"><span class="close">&times;</span><p class="heading"><strong></strong></p><p class="message"></p></div>';
+            var flashObj = $($.parseHTML(templateString));
+            flashObj.addClass("success");
+            flashObj.css("display", "none");
+            flashObj.find(".heading strong").text(" Successfully Copied").prepend("<i class='far fa-copy'> ");
+            flashObj.find(".message").text("The link was successfully copied to your clipboard");
+
+            // WRITE TO DOM
+            $(this).closest(".link-list").before(flashObj);
+
+            // DISPLAY IT - WAIT THEN HIDE
+            $(".flash").not(".flash.blank").slideDown().delay(3000).slideUp();
+
+            $('html, body').animate({
+                scrollTop: $(".flash.success").not(".flash.blank").offset().top - 100
+            }, 500);
+
+
+        })
+
+    });
+</script>
+
+{{>../_partials/site-footer}}
+

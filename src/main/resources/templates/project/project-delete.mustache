@@ -1,14 +1,17 @@
 {{>../_partials/site-header}}
-
+{{>../_partials/flash-message}}
 <div class="panel warning">
     <div class="panel-heading"><i class="fas fa-exclamation-triangle"></i> Warning!</div>
     <div class="panel-content">
+
+        <p><strong>Warning:</strong> this action <strong>CANNOT</strong> be undone. By deleting a project, you understand that you are deleting <strong>all related</strong> milestones and any <em>existing</em> shared links.</p>
         <p>Are you sure you wish to permanently delete the project "{{project.name}}"?</p>
 
-        <form action = "/projects/delete/{{project.id}}" method = "POST">
+        <form action = "/projects/delete/{{project.id}}" id="delete-project" method="POST">
+            <input type="text" class="u-full-width" placeholder="Enter your email..." name="email">
         <p class="button-row">
             <a href="/projects" class="button">Cancel</a>
-            <button class="button danger" type="submit"><i class="fas fa-trash-alt"></i> Confirm</button>
+            <button class="button danger" type="submit"><i class="fas fa-trash-alt"></i> Delete</button>
         </p>
     </form>
 

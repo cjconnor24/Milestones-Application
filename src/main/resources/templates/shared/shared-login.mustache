@@ -1,0 +1,39 @@
+{{>../_partials/site-header}}
+
+<div style="text-align:center">
+    <h1><i class="fas fa-link"></i> Shared Link</h1>
+    <p>Someone has shared their project timeline with you. To continue, please enter the email which you received this
+        link on.</p>
+</div>
+
+{{>../_partials/flash-message}}
+
+<div class="shared-login eight columns offset-by-two">
+    <form id="shared-login" method="post">
+
+        <input type="email" class="u-full-width" name="email" value="" placeholder="john.smith@milestones.com" required>
+        <button type="submit" ><i class="fas fa-sign-in-alt"></i> Continue</button>
+
+    </form>
+</div>
+
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // VALIDATE THE FORM - NOT WORRYING ABOUT AJAX WITH THIS YET
+        // TODO: ADD AJAX CHECK TO SEE IF USERNAME EXISTS
+        $("#shared-login").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }
+            }
+        });
+
+    });
+</script>
+{{>../_partials/site-footer}}

@@ -1,7 +1,7 @@
 {{>../_partials/site-header}}
 
 
-<h1>Projects</h1>
+<h1><i class="fas fa-th-list"></i> Projects</h1>
 <p>Below are the current projects</p>
 <p><a href="/projects/create" class="button button-primary success"><i class="fas fa-calendar-plus"></i> Add New Project</a></p>
 
@@ -13,21 +13,29 @@
 
     <!--THIS WILL BE LOOPED FOR EACH PROJECT IN LIST-->
     <!--TODO: NEEDS VARIABLES ADDED-->
+    {{^projects}}
+        <p class="no-results">There are currently no projects. You can create a new one by clicking the link above.</p>
+    {{/projects}}
     {{#projects}}
     <div class="project">
 
         <div class="milestones">
-            <span>15</span>
+            <span>{{milestones.size}}</span>
         </div>
 
         <div class="details">
-            <p class="details__name"><a href="#">{{name}}</a></p>
-            <p><i class="far fa-clock"></i> Updated {{prettyDateModified}}</p>
+            <p class="details__name"><a href="milestones/project/{{id}}">{{name}}</a></p>
+
+            <div class="timestamps">
+                <p><i class="far fa-clock"></i> Created {{dateCreated}}</p>
+                <p><i class="fas fa-pencil-alt"></i> Modified {{dateModified}}</p>
+            </div>
+
         </div>
 
         <div class="menu">
             <ul>
-                <li><a href="#"><i class="fas fa-link"></i><span>Link</span></a></li>
+                <!--<li><a href="#"><i class="fas fa-link"></i><span>Link</span></a></li>-->
                 <li><a href="/milestones/project/{{id}}" ><i class="fas fa-eye"></i><span>View</span></a></li>
                 <li><a href="/projects/edit/{{id}}"><i class="fas fa-edit"></i><span>Edit</span></a></li>
                 <li><a href="/projects/delete/{{id}}"><i class="fas fa-trash-alt"></i><span>Delete</span></a></li>
@@ -38,12 +46,6 @@
     {{/projects}}
 
 </div>
-
-<script type="text/javascript">
-function DoPost(e){
-    $.get("/projects/milestones", {Identifier:e});
-}
-</script>
 
 
 

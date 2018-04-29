@@ -9,11 +9,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import wpd2.teamR.servlet.*;
 
+import java.util.TimeZone;
+
 public class Runner {
     @SuppressWarnings("unused")
     private static final Logger LOG = LoggerFactory.getLogger(Runner.class);
 
-    private static final int PORT = 9002;
+    private static final int PORT = 9001;
 
 
     private Runner() {
@@ -38,6 +40,8 @@ public class Runner {
         DefaultServlet ds = new DefaultServlet();
         handler.addServlet(new ServletHolder(ds), "/");
 
+        // MAKING PROJECT LIST THE ROUTE - BUT WILL REDIRECT TO LOGIN OTHERWISE
+//        handler.addServlet(new ServletHolder(new ProjectListServlet()), "/");
 
         // PROJECT ROUTES
         handler.addServlet(new ServletHolder(new ProjectListServlet()), "/projects");
@@ -51,10 +55,20 @@ public class Runner {
 
         // COMING SOON, TO A SERVLET NEAR YOU
         handler.addServlet(new ServletHolder(new MilestoneCreateServlet()), "/milestones/create");
-        //handler.addServlet(new ServletHolder(new MilestoneListServlet()), "/milestones/edit/*");
-        //handler.addServlet(new ServletHolder(new MilestoneListServlet()), "/milestones/delete/*");
+        handler.addServlet(new ServletHolder(new MilestoneEditServlet()), "/milestones/edit/*");
+        handler.addServlet(new ServletHolder(new MilestoneDeleteServlet()), "/milestones/delete/*");
 
-        handler.addServlet(new ServletHolder(new PrivatePageServlet()), "/private");
+        // LINK ROUTES
+        handler.addServlet(new ServletHolder(new LinkListServlet()), "/links");
+        handler.addServlet(new ServletHolder(new LinkCreateServlet()), "/links/create");
+        handler.addServlet(new ServletHolder(new LinkDeleteServlet()), "/links/delete/*");
+
+        // SHARED LINK ROUTES
+        handler.addServlet(new ServletHolder(new SharedMilestoneListServlet()), "/shared/milestones");
+        handler.addServlet(new ServletHolder(new SharedLoginServlet()), "/shared/*");
+
+
+        // LOGIN / LOGOUT ROUTES
         handler.addServlet(new ServletHolder(new LoginServlet()), "/login");
         handler.addServlet(new ServletHolder(new LogoutServlet()), "/logout");
 
@@ -67,6 +81,10 @@ public class Runner {
     }
 
     public static void main(String[] args) {
+
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+        System.out.println(System.currentTimeMillis());
+
         try {
 
             // START THE SERVER ABOVE

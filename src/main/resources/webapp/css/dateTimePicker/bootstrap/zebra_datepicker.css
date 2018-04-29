@@ -1,3 +1,4 @@
+@import "../../variables.css";
 .Zebra_DatePicker {
     background: #fff;
     border: 1px solid #aaa;
@@ -47,7 +48,7 @@
 }
 
 .Zebra_DatePicker .dp_body .dp_selected {
-    background: #337ab7;
+    background: var(--blue);
     color: #fff;
 }
 

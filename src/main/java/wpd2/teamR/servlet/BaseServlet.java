@@ -21,7 +21,7 @@ import java.util.Set;
 /**
  * BASE SERVLET FROM WHICH TO EXTEND ALL OTHER BEHAVIOUR
  */
-class BaseServlet extends HttpServlet {
+ class BaseServlet extends HttpServlet {
     @SuppressWarnings("unused")
     static final Logger LOG = LoggerFactory.getLogger(BaseServlet.class);
 
@@ -41,7 +41,7 @@ class BaseServlet extends HttpServlet {
     /**
      * Constructor for base servlet - initialises the mustache renderer
      */
-    BaseServlet() {
+     BaseServlet() {
         mustache = new MustacheRenderer();
     }
 
@@ -91,14 +91,6 @@ class BaseServlet extends HttpServlet {
         }
         return true;
 
-
-        // TODO: remove this shiznit but keeping for reference
-//        if (PROTECTED_PAGES.contains(uri) && "".equals(userName)) {
-//            UserFuncs.setLoginRedirect(request);
-//            response.sendRedirect(response.encodeRedirectURL(LOGIN_PAGE));
-//            return false;
-//        }
-//        return true;
     }
 
     /**
@@ -147,12 +139,28 @@ class BaseServlet extends HttpServlet {
     }
 
     protected int getCurrentProject(HttpServletRequest request) {
+
     HttpSession session = request.getSession(false);
+
         if (session == null) {
             return -1;
+        } else {
+
+            // TRY AND FETCH THE PROJECT ID - IF NOT SET - RETURN FALSE
+            try {
+
+                int val = (int) session.getAttribute("projectId");
+                return val;
+
+            } catch(NullPointerException error){
+
+                return -1;
+
+            }
+
+
         }
-        int val = (int) session.getAttribute("projectId");
-            return val == 0 ? -1 : val;
+
         }
 
     protected String getUrlParamter(String url)

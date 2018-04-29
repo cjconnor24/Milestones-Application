@@ -1,13 +1,80 @@
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Temp Homepage</title>
+    <style>
+        @keyframes move {
+            0% {
+                transform: translateX(0px);
+            }
+            25% {
+                transform: translateX(500px) rotate(2deg);
+            }
+
+            50% {
+                transform: translateX(0px) rotate(0deg);
+            }
+        }
+
+        body {
+            font-family: Arial;
+            font-size: 2em;
+            background: #000;
+            color: #FFF;
+        }
+
+        body * {
+            /*transition: 1s;*/
+
+        }
+
+        h1 {
+            font-family: times;
+            color: red;
+            animation-name: move;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        p:nth-child(3) a {
+            color: green;
+            font-family: "Comic Sans MS";
+        }
+
+        p:nth-child(4) a {
+            color: magenta;
+            font-family: "Courier New";
+        }
+
+        p:nth-child(5) a {
+            color: yellow;
+
+        }
+        p {
+            animation-name: move;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        p:nth-child(1) {animation-delay: 50ms;}
+        p:nth-child(2) {animation-delay: 100ms;}
+        p:nth-child(3) {animation-delay: 150ms;}
+        p:nth-child(4) {animation-delay: 200ms;}
+        p:nth-child(5) {animation-delay: 250ms;}
+    </style>
+</head>
 <body>
-<h1>Lecture 9 Example</h1>
-<p>Showing simple access to a protected page.</p>
+
+<h1>Abonimation...Going Soon</h1>
+<p>THIS WILL BE GOING SOON. HERE IS A 90S SPIN</p>
 
 <p><a href="/login">Login Page</a></p>
-<p><a href="/public">Public page (anyone can access)</a></p>
 <p><a href="/private">Private page (have to login to access)</a></p>
-<form action="/logout" method="POST">
-    <button type="submit">Logout</button>
-</form>
+<p><a href="/logout">Logout</a></p>
+
 </body>
 </html>

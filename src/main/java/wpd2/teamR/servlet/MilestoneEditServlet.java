@@ -106,16 +106,12 @@ public class MilestoneEditServlet extends BaseServlet {
             //=====================UGLY TIMESTAMP PARSEING - SOMEONE REFACTOR=============================
 
             String datetimeString =  request.getParameter("dueDate");
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             Date date = null;
             try {
-                date = sdf.parse(datetimeString);
+                date = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(datetimeString);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-
-            Timestamp timestamp = new Timestamp();
-
 
             //==================================================
 

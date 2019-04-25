@@ -7,7 +7,7 @@ The application itself is a milestone application that allows users to have diff
 
 ## GROUP ID
 ```
-GROUP ID: R
+GROUP ID: █
 ```
 
 ******
@@ -17,10 +17,10 @@ Below are the current team members
 
 |Team Member |	Student ID	|	Email Address|
 | --- | :---: | ---: |
-|Christopher Connor	|	S1715477	|	Cconno208@caledonian.ac.uk|
-|Daryl McAllister	|	S1222204	|	Dmcall200@caledonian.ac.uk|
-|Gavin Macleod	|	S1715408	|	Gmacle204@caledonian.ac.uk|
-|Niklas Olsson	|	S1434184	|	Nolsso200@caledonian.ac.uk|
+|[Christopher Connor](https://github.com/cjconnor24)	|	████████	|	████████@caledonian.ac.uk|
+|[Daryl McAllister](https://github.com/mcllsti)	|	████████	|	████████@caledonian.ac.uk|
+|[Gavin Macleod](https://github.com/GavinMac)	|	████████	|	████████@caledonian.ac.uk|
+|[Niklas Olsson](https://github.com/nolsson151)	|	████████	|	████████@caledonian.ac.uk|
 
 ******
 

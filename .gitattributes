@@ -1,0 +1,2 @@
+# EXCLUDING COMPILED JS FROM LINGUIST
+public/js/* linguist-vendored
